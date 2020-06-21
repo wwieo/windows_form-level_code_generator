@@ -143,5 +143,14 @@
   <ItemGroup>
     <None Include="Resources\TRASHBOX.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bricks\dis_gravity_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bricks\gravity_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bricks\p_hurt_random.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

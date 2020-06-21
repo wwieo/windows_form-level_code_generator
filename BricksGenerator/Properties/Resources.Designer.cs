@@ -173,6 +173,16 @@ namespace BricksGenerator.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap dis_gravity_r {
+            get {
+                object obj = ResourceManager.GetObject("dis_gravity_r", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap energy {
             get {
                 object obj = ResourceManager.GetObject("energy", resourceCulture);
@@ -203,6 +213,16 @@ namespace BricksGenerator.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap gravity_r {
+            get {
+                object obj = ResourceManager.GetObject("gravity_r", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap hurt {
             get {
                 object obj = ResourceManager.GetObject("hurt", resourceCulture);
@@ -216,6 +236,16 @@ namespace BricksGenerator.Properties {
         internal static System.Drawing.Bitmap p_hurt {
             get {
                 object obj = ResourceManager.GetObject("p_hurt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap p_hurt_random {
+            get {
+                object obj = ResourceManager.GetObject("p_hurt_random", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
