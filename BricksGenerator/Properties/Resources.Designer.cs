@@ -163,6 +163,16 @@ namespace BricksGenerator.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap d_laser_full {
+            get {
+                object obj = ResourceManager.GetObject("d_laser_full", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap dis_gravity {
             get {
                 object obj = ResourceManager.GetObject("dis_gravity", resourceCulture);
@@ -266,6 +276,16 @@ namespace BricksGenerator.Properties {
         internal static System.Drawing.Bitmap s_laser {
             get {
                 object obj = ResourceManager.GetObject("s_laser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap s_laser_full {
+            get {
+                object obj = ResourceManager.GetObject("s_laser_full", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

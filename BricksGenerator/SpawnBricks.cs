@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,9 @@ namespace BricksGenerator
         int bk_r_disgravity_count = 1;
         int bk_disgravity_count = 1;
         int bk_energy_count = 1;
+        int bk_s_laser_count = 1;
+        int bk_d_laser_count = 1;
+        int bk_way_s_laser_count = 1;
 
         public void spawn(PictureBox brick, String brick_name)
         {
@@ -90,6 +94,21 @@ namespace BricksGenerator
             {
                 pb.Name = "bk_energy" + bk_energy_count.ToString();
                 bk_energy_count += 1;
+            }
+            else if (brick_name == "bk_s_laser")
+            {
+                pb.Name = "bk_s_laser" + bk_s_laser_count.ToString();
+                bk_s_laser_count += 1;
+            }
+            else if (brick_name == "bk_d_laser")
+            {
+                pb.Name = "bk_d_laser" + bk_d_laser_count.ToString();
+                bk_d_laser_count += 1;
+            }
+            else if (brick_name == "bk_way_s_laser")
+            {
+                pb.Name = "bk_way_s_laser" + bk_way_s_laser_count.ToString();
+                bk_way_s_laser_count += 1;
             }
 
             pb.Size = brick.Size;
@@ -163,9 +182,24 @@ namespace BricksGenerator
                 }
                 //Console.WriteLine(AllBrickList[current_brick_name].Location);
             }
+            else if(e.Button == MouseButtons.Right)
+            {
+                if(pb.Name.Contains("bk_way_s_laser"))
+                {
+                    int y2 = e.Y;
+                    int y1 = (pb.Location.Y + (pb.Height / 2));
+                    int x2 = e.X;
+                    int x1 = (pb.Location.X + (pb.Width / 2));
+
+                    float angle = (float)Math.Atan((y2 - y1) / (x2 - x1));
+
+                    Console.WriteLine(angle);
+                    //pb.Image = RotateImage(pb.Image, (100 * angle));
+                }
+            }
 
         }
-
+     
 
         void up_bk(object sender, System.Windows.Forms.MouseEventArgs e)
         {

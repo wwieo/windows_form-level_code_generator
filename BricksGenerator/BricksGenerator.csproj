@@ -152,5 +152,11 @@
   <ItemGroup>
     <None Include="Resources\bricks\p_hurt_random.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bricks\d_laser_full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bricks\s_laser_full.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
