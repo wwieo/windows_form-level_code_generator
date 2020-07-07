@@ -45,6 +45,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.bk_d_laser = new System.Windows.Forms.PictureBox();
             this.bk_way_s_laser = new System.Windows.Forms.PictureBox();
+            this.lblAngle = new System.Windows.Forms.Label();
+            this.bk_way_d_laser = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bk_s_laser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_energy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_disgravity)).BeginInit();
@@ -62,6 +65,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_d_laser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_way_s_laser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bk_way_d_laser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bk_s_laser
@@ -250,11 +255,45 @@
             this.bk_way_s_laser.TabStop = false;
             this.bk_way_s_laser.Click += new System.EventHandler(this.bk_way_s_laser_Click);
             // 
+            // lblAngle
+            // 
+            this.lblAngle.AutoSize = true;
+            this.lblAngle.Location = new System.Drawing.Point(367, 403);
+            this.lblAngle.Name = "lblAngle";
+            this.lblAngle.Size = new System.Drawing.Size(14, 15);
+            this.lblAngle.TabIndex = 19;
+            this.lblAngle.Text = "0";
+            this.lblAngle.Visible = false;
+            // 
+            // bk_way_d_laser
+            // 
+            this.bk_way_d_laser.Image = global::BricksGenerator.Properties.Resources.d_laser;
+            this.bk_way_d_laser.Location = new System.Drawing.Point(397, 435);
+            this.bk_way_d_laser.Name = "bk_way_d_laser";
+            this.bk_way_d_laser.Size = new System.Drawing.Size(65, 18);
+            this.bk_way_d_laser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bk_way_d_laser.TabIndex = 20;
+            this.bk_way_d_laser.TabStop = false;
+            this.bk_way_d_laser.Click += new System.EventHandler(this.bk_way_d_laser_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BricksGenerator.Properties.Resources.bg;
+            this.pictureBox1.Location = new System.Drawing.Point(-3, 686);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(503, 68);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(492, 753);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.bk_way_d_laser);
+            this.Controls.Add(this.lblAngle);
             this.Controls.Add(this.bk_way_s_laser);
             this.Controls.Add(this.bk_d_laser);
             this.Controls.Add(this.bk_s_laser);
@@ -294,7 +333,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_d_laser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_way_s_laser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bk_way_d_laser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -316,6 +358,9 @@
         private System.Windows.Forms.PictureBox bk_s_laser;
         private System.Windows.Forms.PictureBox bk_d_laser;
         private System.Windows.Forms.PictureBox bk_way_s_laser;
+        private System.Windows.Forms.Label lblAngle;
+        private System.Windows.Forms.PictureBox bk_way_d_laser;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

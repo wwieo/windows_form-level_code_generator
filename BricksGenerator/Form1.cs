@@ -92,5 +92,10 @@ namespace BricksGenerator
         {
             spawn(bk_way_s_laser, "bk_way_s_laser");
         }
+
+        private void bk_way_d_laser_Click(object sender, EventArgs e)
+        {
+            spawn(bk_way_d_laser, "bk_way_d_laser");
+        }
     }
 }

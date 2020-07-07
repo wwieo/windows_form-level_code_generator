@@ -15,6 +15,7 @@ namespace BricksGenerator
     {
 
         Dictionary<string, PictureBox> AllBrickList = new Dictionary<string, PictureBox>();
+        Dictionary<string, int> BrickAngle = new Dictionary<string, int>();
 
         int bk_casual_count = 1;
         int bk_glass_count = 1;
@@ -31,6 +32,7 @@ namespace BricksGenerator
         int bk_s_laser_count = 1;
         int bk_d_laser_count = 1;
         int bk_way_s_laser_count = 1;
+        int bk_way_d_laser_count = 1;
 
         public void spawn(PictureBox brick, String brick_name)
         {
@@ -110,6 +112,11 @@ namespace BricksGenerator
                 pb.Name = "bk_way_s_laser" + bk_way_s_laser_count.ToString();
                 bk_way_s_laser_count += 1;
             }
+            else if (brick_name == "bk_way_d_laser")
+            {
+                pb.Name = "bk_way_d_laser" + bk_way_d_laser_count.ToString();
+                bk_way_d_laser_count += 1;
+            }
 
             pb.Size = brick.Size;
             pb.Image = brick.Image;
@@ -121,6 +128,12 @@ namespace BricksGenerator
             pb.MouseMove += new MouseEventHandler(drag_bk);
             pb.MouseUp += new MouseEventHandler(up_bk);
             pb.MouseWheel += new MouseEventHandler(scale_bk);
+            if(brick_name == "bk_way_s_laser" || brick_name == "bk_way_d_laser")
+            {
+                pb.Paint += new PaintEventHandler(way_paint);
+                BrickAngle.Add(pb.Name, 0);
+            }
+                
 
             AllBrickList.Add(pb.Name, pb);
 
@@ -144,13 +157,34 @@ namespace BricksGenerator
         void down_bk(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             point = e.Location;
+            PictureBox pb = sender as PictureBox;
+            int bk_X = pb.Location.X + pb.Width / 2;
+            int bk_Y = pb.Location.Y + pb.Height / 2;
+            Pen pen = new Pen(Color.Black, 2);
+            Pen penB = new Pen(Color.Blue, 2);
+            Graphics GPS = this.CreateGraphics();
+            GPS.Clear(Color.LightGray);
+            GPS.DrawLine(pen, bk_X - 1000, bk_Y, bk_X + 1000, bk_Y);
+            GPS.DrawLine(pen, bk_X, bk_Y - 1000, bk_X, bk_Y + 1000);
+            if (pb.Name.Contains("bk_phurt") || pb.Name.Contains("bk_gravity") || pb.Name.Contains("bk_disgravity"))
+            {
+                if (pb.Name.Contains("bk_gravity") || pb.Name.Contains("bk_disgravity"))
+                {
+                    GPS.DrawEllipse(penB, bk_X - 125, bk_Y - 125, 250, 250);
+                }
+                if (pb.Name.Contains("bk_phurt"))
+                {
+                    GPS.DrawEllipse(penB, bk_X - 25, bk_Y - 25, 50, 50);
+                }
+            }
         }
-
-
+        float pb_angle;
         void drag_bk(object sender, System.Windows.Forms.MouseEventArgs e)
         {
 
             PictureBox pb = sender as PictureBox;
+            Pen penB = new Pen(Color.Blue, 2);
+            Pen penR = new Pen(Color.Red, 2);
             Pen pen = new Pen(Color.Black, 2);
             string current_brick_name = pb.Name;
 
@@ -180,26 +214,77 @@ namespace BricksGenerator
                         }
                     }
                 }
+                if (pb.Name.Contains("bk_phurt") || pb.Name.Contains("bk_gravity") || pb.Name.Contains("bk_disgravity"))
+                {
+                    if (pb.Name.Contains("bk_gravity") || pb.Name.Contains("bk_disgravity"))
+                    {
+                        GPS.DrawEllipse(penB, bk_X - 125, bk_Y - 125, 250, 250);
+                    }
+                    if (pb.Name.Contains("bk_phurt"))
+                    {
+                        GPS.DrawEllipse(penB, bk_X - 25, bk_Y - 25, 50, 50);
+                    }
+                }
                 //Console.WriteLine(AllBrickList[current_brick_name].Location);
             }
             else if(e.Button == MouseButtons.Right)
             {
-                if(pb.Name.Contains("bk_way_s_laser"))
+                if(pb.Name.Contains("bk_way_s_laser") || pb.Name.Contains("bk_way_d_laser"))
                 {
-                    int y2 = e.Y;
-                    int y1 = (pb.Location.Y + (pb.Height / 2));
-                    int x2 = e.X;
-                    int x1 = (pb.Location.X + (pb.Width / 2));
+                    Rectangle rect = pb.ClientRectangle;
+                    float centerX = (rect.Left + rect.Right) * 0.5f;
+                    float centerY = (rect.Top + rect.Bottom) * 0.5f;
+                    pb_angle = (float)(Math.Atan2(e.Y - centerY, e.X - centerX) * 180.0 / Math.PI);
+                    
+                    pb.Invalidate();
 
-                    float angle = (float)Math.Atan((y2 - y1) / (x2 - x1));
+                    lblAngle.Visible = true;
+                    int angle = (int)pb_angle;
+                    angle = -angle;
+                    lblAngle.Text = angle.ToString();
 
-                    Console.WriteLine(angle);
-                    //pb.Image = RotateImage(pb.Image, (100 * angle));
+                    Graphics GPS = this.CreateGraphics();
+                    GPS.Clear(Color.LightGray);
+                    
+                    int bk_X = pb.Location.X + pb.Width / 2;
+                    int bk_Y = pb.Location.Y + pb.Height / 2;
+                    int terminal_X = (int)(1000 * Math.Cos((Math.PI / 180) * -angle));
+                    int terminal_Y = (int)(1000 * Math.Sin((Math.PI / 180) * -angle));
+     
+                    if (pb.Name.Contains("bk_way_d_laser"))
+                        GPS.DrawLine(penR, bk_X, bk_Y, bk_X -terminal_X, bk_Y - terminal_Y);
+                    GPS.DrawLine(penR, bk_X, bk_Y, bk_X + terminal_X, bk_Y + terminal_Y);
+
+                    foreach (KeyValuePair<string, int> item in BrickAngle)
+                    {
+                        if(pb.Name == item.Key)
+                        {
+                            BrickAngle[item.Key] = angle;
+                            Console.WriteLine(item.Key);
+                            break;
+                        }
+                    }
                 }
             }
 
         }
-     
+
+        void way_paint(object sender, PaintEventArgs e)
+        {
+            PictureBox pb = sender as PictureBox;
+            Rectangle rect = pb.ClientRectangle;
+            float centerX = (rect.Left + rect.Right) * 0.5f;
+            float centerY = (rect.Top + rect.Bottom) * 0.5f;
+            float scale = (float)pb.Width / pb.Image.Width;
+
+            e.Graphics.TranslateTransform(centerX, centerY);
+            e.Graphics.RotateTransform(pb_angle);
+            e.Graphics.TranslateTransform(-centerX, -centerY);
+            e.Graphics.ScaleTransform(scale, scale);
+            e.Graphics.Clear(Color.LightGray);
+            e.Graphics.DrawImage(pb.Image, 0, 0);
+        }
+
 
         void up_bk(object sender, System.Windows.Forms.MouseEventArgs e)
         {
@@ -215,7 +300,7 @@ namespace BricksGenerator
             if (pb.Top + pb.Height > 690) pb.Top = 690 - pb.Height;
 
             //Console.WriteLine(pb.Location);
-
+            lblAngle.Visible = false;
             Graphics GPS = this.CreateGraphics();
             GPS.Clear(Color.LightGray);
         }
@@ -242,5 +327,8 @@ namespace BricksGenerator
             }
 
         }
+
+
+
     }
 }
