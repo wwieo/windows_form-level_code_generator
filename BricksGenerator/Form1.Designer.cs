@@ -48,6 +48,12 @@
             this.lblAngle = new System.Windows.Forms.Label();
             this.bk_way_d_laser = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnTransCode = new System.Windows.Forms.Button();
+            this.txtRstCode = new System.Windows.Forms.TextBox();
+            this.txtSource = new System.Windows.Forms.TextBox();
+            this.btnSpawn = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bk_s_laser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_energy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_disgravity)).BeginInit();
@@ -286,11 +292,72 @@
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.IndianRed;
+            this.btnClear.Location = new System.Drawing.Point(390, 644);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 22;
+            this.btnClear.Text = "ClearAll";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnTransCode
+            // 
+            this.btnTransCode.Location = new System.Drawing.Point(0, 695);
+            this.btnTransCode.Name = "btnTransCode";
+            this.btnTransCode.Size = new System.Drawing.Size(137, 23);
+            this.btnTransCode.TabIndex = 23;
+            this.btnTransCode.Text = "轉換成代碼並複製";
+            this.btnTransCode.UseVisualStyleBackColor = true;
+            this.btnTransCode.Click += new System.EventHandler(this.btnTransCode_Click);
+            // 
+            // txtRstCode
+            // 
+            this.txtRstCode.Location = new System.Drawing.Point(143, 693);
+            this.txtRstCode.Name = "txtRstCode";
+            this.txtRstCode.Size = new System.Drawing.Size(342, 25);
+            this.txtRstCode.TabIndex = 24;
+            // 
+            // txtSource
+            // 
+            this.txtSource.Location = new System.Drawing.Point(0, 724);
+            this.txtSource.Name = "txtSource";
+            this.txtSource.Size = new System.Drawing.Size(354, 25);
+            this.txtSource.TabIndex = 25;
+            // 
+            // btnSpawn
+            // 
+            this.btnSpawn.Location = new System.Drawing.Point(360, 724);
+            this.btnSpawn.Name = "btnSpawn";
+            this.btnSpawn.Size = new System.Drawing.Size(125, 25);
+            this.btnSpawn.TabIndex = 26;
+            this.btnSpawn.Text = "使用代碼並生成";
+            this.btnSpawn.UseVisualStyleBackColor = true;
+            this.btnSpawn.Click += new System.EventHandler(this.btnSpawn_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(390, 576);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.TabIndex = 27;
+            this.btnPrint.Text = "截圖";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(492, 753);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.btnSpawn);
+            this.Controls.Add(this.txtSource);
+            this.Controls.Add(this.txtRstCode);
+            this.Controls.Add(this.btnTransCode);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bk_way_d_laser);
             this.Controls.Add(this.lblAngle);
@@ -361,6 +428,12 @@
         private System.Windows.Forms.Label lblAngle;
         private System.Windows.Forms.PictureBox bk_way_d_laser;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnTransCode;
+        private System.Windows.Forms.TextBox txtRstCode;
+        private System.Windows.Forms.TextBox txtSource;
+        private System.Windows.Forms.Button btnSpawn;
+        private System.Windows.Forms.Button btnPrint;
     }
 }
 
