@@ -54,6 +54,13 @@
             this.txtSource = new System.Windows.Forms.TextBox();
             this.btnSpawn = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.ball0 = new System.Windows.Forms.PictureBox();
+            this.ball10 = new System.Windows.Forms.PictureBox();
+            this.ball20 = new System.Windows.Forms.PictureBox();
+            this.ball30 = new System.Windows.Forms.PictureBox();
+            this.ball40 = new System.Windows.Forms.PictureBox();
+            this.ball45 = new System.Windows.Forms.PictureBox();
+            this.ball100 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bk_s_laser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_energy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_disgravity)).BeginInit();
@@ -73,6 +80,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.bk_way_s_laser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_way_d_laser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball45)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball100)).BeginInit();
             this.SuspendLayout();
             // 
             // bk_s_laser
@@ -295,7 +309,7 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.IndianRed;
-            this.btnClear.Location = new System.Drawing.Point(390, 644);
+            this.btnClear.Location = new System.Drawing.Point(395, 657);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 22;
@@ -339,19 +353,103 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(390, 576);
+            this.btnPrint.Location = new System.Drawing.Point(385, 624);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.Size = new System.Drawing.Size(100, 27);
             this.btnPrint.TabIndex = 27;
             this.btnPrint.Text = "截圖";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // ball0
+            // 
+            this.ball0.Image = global::BricksGenerator.Properties.Resources._0_10;
+            this.ball0.Location = new System.Drawing.Point(370, 474);
+            this.ball0.Name = "ball0";
+            this.ball0.Size = new System.Drawing.Size(28, 28);
+            this.ball0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ball0.TabIndex = 28;
+            this.ball0.TabStop = false;
+            this.ball0.Click += new System.EventHandler(this.ball0_Click);
+            // 
+            // ball10
+            // 
+            this.ball10.Image = global::BricksGenerator.Properties.Resources._10_20;
+            this.ball10.Location = new System.Drawing.Point(404, 468);
+            this.ball10.Name = "ball10";
+            this.ball10.Size = new System.Drawing.Size(34, 34);
+            this.ball10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ball10.TabIndex = 29;
+            this.ball10.TabStop = false;
+            this.ball10.Click += new System.EventHandler(this.ball10_Click);
+            // 
+            // ball20
+            // 
+            this.ball20.Image = global::BricksGenerator.Properties.Resources._20_30;
+            this.ball20.Location = new System.Drawing.Point(445, 468);
+            this.ball20.Name = "ball20";
+            this.ball20.Size = new System.Drawing.Size(40, 40);
+            this.ball20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ball20.TabIndex = 30;
+            this.ball20.TabStop = false;
+            this.ball20.Click += new System.EventHandler(this.ball20_Click);
+            // 
+            // ball30
+            // 
+            this.ball30.Image = global::BricksGenerator.Properties.Resources._30_40;
+            this.ball30.Location = new System.Drawing.Point(385, 517);
+            this.ball30.Name = "ball30";
+            this.ball30.Size = new System.Drawing.Size(45, 45);
+            this.ball30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ball30.TabIndex = 31;
+            this.ball30.TabStop = false;
+            this.ball30.Click += new System.EventHandler(this.ball30_Click);
+            // 
+            // ball40
+            // 
+            this.ball40.Image = global::BricksGenerator.Properties.Resources._40_45;
+            this.ball40.Location = new System.Drawing.Point(437, 514);
+            this.ball40.Name = "ball40";
+            this.ball40.Size = new System.Drawing.Size(50, 50);
+            this.ball40.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ball40.TabIndex = 32;
+            this.ball40.TabStop = false;
+            this.ball40.Click += new System.EventHandler(this.ball40_Click);
+            // 
+            // ball45
+            // 
+            this.ball45.Image = global::BricksGenerator.Properties.Resources._45_50;
+            this.ball45.Location = new System.Drawing.Point(384, 568);
+            this.ball45.Name = "ball45";
+            this.ball45.Size = new System.Drawing.Size(50, 50);
+            this.ball45.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ball45.TabIndex = 33;
+            this.ball45.TabStop = false;
+            this.ball45.Click += new System.EventHandler(this.ball45_Click);
+            // 
+            // ball100
+            // 
+            this.ball100.Image = global::BricksGenerator.Properties.Resources._100;
+            this.ball100.Location = new System.Drawing.Point(445, 578);
+            this.ball100.Name = "ball100";
+            this.ball100.Size = new System.Drawing.Size(40, 40);
+            this.ball100.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ball100.TabIndex = 34;
+            this.ball100.TabStop = false;
+            this.ball100.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(492, 753);
+            this.Controls.Add(this.ball100);
+            this.Controls.Add(this.ball45);
+            this.Controls.Add(this.ball40);
+            this.Controls.Add(this.ball30);
+            this.Controls.Add(this.ball20);
+            this.Controls.Add(this.ball10);
+            this.Controls.Add(this.ball0);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnSpawn);
             this.Controls.Add(this.txtSource);
@@ -402,6 +500,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.bk_way_s_laser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_way_d_laser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball45)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball100)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,6 +539,13 @@
         private System.Windows.Forms.TextBox txtSource;
         private System.Windows.Forms.Button btnSpawn;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.PictureBox ball0;
+        private System.Windows.Forms.PictureBox ball10;
+        private System.Windows.Forms.PictureBox ball20;
+        private System.Windows.Forms.PictureBox ball30;
+        private System.Windows.Forms.PictureBox ball40;
+        private System.Windows.Forms.PictureBox ball45;
+        private System.Windows.Forms.PictureBox ball100;
     }
 }
 

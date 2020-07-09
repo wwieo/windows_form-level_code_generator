@@ -115,11 +115,15 @@ namespace BricksGenerator
             string result = "";
             foreach (KeyValuePair<string, PictureBox> item in AllBrickList)
             {
-                result += transName(item.Value);
-                result += transPosAndAng(item.Value);
+                if (!item.Key.Contains("ball"))
+                {
+                    result += transName(item.Value);
+                    result += transPosAndAng(item.Value);
+                }
+                
             }
             txtRstCode.Text = result;
-            Clipboard.SetText(result);
+            if (result != "") Clipboard.SetText(result);
         }
 
         private string transName(PictureBox brick)
@@ -209,7 +213,6 @@ namespace BricksGenerator
                 frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
 
                 Image sourceImg = CutImage(bmp, new Point(7, 80), new Rectangle(0, 0, 360, 640));
-
      
                 SaveFileDialog save = new SaveFileDialog();
                 save.Title = "Saving";
@@ -228,6 +231,41 @@ namespace BricksGenerator
             tmpGraph.DrawImage(SourceImage, CutArea, StartPoint.X, StartPoint.Y, CutArea.Width, CutArea.Height, GraphicsUnit.Pixel);
             tmpGraph.Dispose();
             return NewBitmap;
+        }
+
+        private void ball0_Click(object sender, EventArgs e)
+        {
+            spawn(ball0, "ball0", 0, 0, 0);
+        }
+
+        private void ball10_Click(object sender, EventArgs e)
+        {
+            spawn(ball10, "ball10", 0, 0, 0);
+        }
+
+        private void ball20_Click(object sender, EventArgs e)
+        {
+            spawn(ball20, "ball20", 0, 0, 0);
+        }
+
+        private void ball30_Click(object sender, EventArgs e)
+        {
+            spawn(ball30, "ball30", 0, 0, 0);
+        }
+
+        private void ball40_Click(object sender, EventArgs e)
+        {
+            spawn(ball40, "ball40", 0, 0, 0);
+        }
+
+        private void ball45_Click(object sender, EventArgs e)
+        {
+            spawn(ball45, "ball45", 0, 0, 0);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            spawn(ball100, "ball100", 0, 0, 0);
         }
     }
 }
