@@ -137,8 +137,8 @@ namespace BricksGenerator
             else if (brick.Name.Contains("bk_r_phurt")) executing += "phr";
             else if (brick.Name.Contains("bk_phurt")) executing += "ph";
             else if (brick.Name.Contains("bk_rock")) executing += "r";
-            else if (brick.Name.Contains("bk_r_gravity")) executing += "gr";
-            else if (brick.Name.Contains("bk_gravity")) executing += "g";
+            else if (brick.Name.Contains("bk_r_gravity")) executing += "grr";
+            else if (brick.Name.Contains("bk_gravity")) executing += "gr";
             else if (brick.Name.Contains("bk_r_disgravity")) executing += "dgr";
             else if (brick.Name.Contains("bk_disgravity")) executing += "dg";
             else if (brick.Name.Contains("bk_energy")) executing += "b";
@@ -192,8 +192,8 @@ namespace BricksGenerator
                 else if (source[0] == "phr") spawn(bk_r_phurt, "bk_r_phurt", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
                 else if (source[0] == "ph") spawn(bk_phurt, "bk_phurt", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
                 else if (source[0] == "r") spawn(bk_rock, "bk_rock", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "gr") spawn(bk_r_gravity, "bk_r_gravity", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "g") spawn(bk_gravity, "bk_gravity", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
+                else if (source[0] == "grr") spawn(bk_r_gravity, "bk_r_gravity", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
+                else if (source[0] == "gr") spawn(bk_gravity, "bk_gravity", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
                 else if (source[0] == "dgr") spawn(bk_r_disgravity, "bk_r_disgravity", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
                 else if (source[0] == "dg") spawn(bk_disgravity, "bk_disgravity", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
                 else if (source[0] == "b") spawn(bk_energy, "bk_energy", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
