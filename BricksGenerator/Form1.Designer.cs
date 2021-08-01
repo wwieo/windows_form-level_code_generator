@@ -37,6 +37,8 @@
             this.btnSpawn = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.bk_huge_hp = new System.Windows.Forms.PictureBox();
+            this.bk_little_hp = new System.Windows.Forms.PictureBox();
             this.bk_way_d_laser = new System.Windows.Forms.PictureBox();
             this.bk_d_laser = new System.Windows.Forms.PictureBox();
             this.bk_way_s_laser = new System.Windows.Forms.PictureBox();
@@ -63,6 +65,8 @@
             this.bk_glass = new System.Windows.Forms.PictureBox();
             this.bk_casual = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.bk_huge_hp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bk_little_hp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_way_d_laser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_d_laser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_way_s_laser)).BeginInit();
@@ -95,7 +99,7 @@
             // 
             this.lblAngle.AutoSize = true;
             this.lblAngle.Font = new System.Drawing.Font("新細明體", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblAngle.Location = new System.Drawing.Point(459, 415);
+            this.lblAngle.Location = new System.Drawing.Point(465, 441);
             this.lblAngle.Name = "lblAngle";
             this.lblAngle.Size = new System.Drawing.Size(25, 28);
             this.lblAngle.TabIndex = 19;
@@ -163,10 +167,32 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // bk_huge_hp
+            // 
+            this.bk_huge_hp.Image = global::BricksGenerator.Properties.Resources.huge_hp;
+            this.bk_huge_hp.Location = new System.Drawing.Point(485, 325);
+            this.bk_huge_hp.Name = "bk_huge_hp";
+            this.bk_huge_hp.Size = new System.Drawing.Size(55, 55);
+            this.bk_huge_hp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bk_huge_hp.TabIndex = 41;
+            this.bk_huge_hp.TabStop = false;
+            this.bk_huge_hp.Click += new System.EventHandler(this.bk_huge_hp_Click);
+            // 
+            // bk_little_hp
+            // 
+            this.bk_little_hp.Image = global::BricksGenerator.Properties.Resources.little_hp;
+            this.bk_little_hp.Location = new System.Drawing.Point(412, 325);
+            this.bk_little_hp.Name = "bk_little_hp";
+            this.bk_little_hp.Size = new System.Drawing.Size(50, 50);
+            this.bk_little_hp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bk_little_hp.TabIndex = 40;
+            this.bk_little_hp.TabStop = false;
+            this.bk_little_hp.Click += new System.EventHandler(this.bk_little_hp_Click);
+            // 
             // bk_way_d_laser
             // 
             this.bk_way_d_laser.Image = global::BricksGenerator.Properties.Resources.d_laser;
-            this.bk_way_d_laser.Location = new System.Drawing.Point(495, 450);
+            this.bk_way_d_laser.Location = new System.Drawing.Point(495, 465);
             this.bk_way_d_laser.Name = "bk_way_d_laser";
             this.bk_way_d_laser.Size = new System.Drawing.Size(45, 45);
             this.bk_way_d_laser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -177,7 +203,7 @@
             // bk_d_laser
             // 
             this.bk_d_laser.Image = global::BricksGenerator.Properties.Resources.d_laser_full;
-            this.bk_d_laser.Location = new System.Drawing.Point(399, 450);
+            this.bk_d_laser.Location = new System.Drawing.Point(412, 465);
             this.bk_d_laser.Name = "bk_d_laser";
             this.bk_d_laser.Size = new System.Drawing.Size(45, 45);
             this.bk_d_laser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -188,7 +214,7 @@
             // bk_way_s_laser
             // 
             this.bk_way_s_laser.Image = global::BricksGenerator.Properties.Resources.s_laser;
-            this.bk_way_s_laser.Location = new System.Drawing.Point(495, 368);
+            this.bk_way_s_laser.Location = new System.Drawing.Point(495, 395);
             this.bk_way_s_laser.Name = "bk_way_s_laser";
             this.bk_way_s_laser.Size = new System.Drawing.Size(45, 45);
             this.bk_way_s_laser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -199,7 +225,7 @@
             // bk_s_laser
             // 
             this.bk_s_laser.Image = global::BricksGenerator.Properties.Resources.s_laser_full;
-            this.bk_s_laser.Location = new System.Drawing.Point(399, 368);
+            this.bk_s_laser.Location = new System.Drawing.Point(412, 395);
             this.bk_s_laser.Name = "bk_s_laser";
             this.bk_s_laser.Size = new System.Drawing.Size(45, 45);
             this.bk_s_laser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -297,7 +323,7 @@
             // bk_energy
             // 
             this.bk_energy.Image = global::BricksGenerator.Properties.Resources.energy;
-            this.bk_energy.Location = new System.Drawing.Point(385, 310);
+            this.bk_energy.Location = new System.Drawing.Point(387, 298);
             this.bk_energy.Name = "bk_energy";
             this.bk_energy.Size = new System.Drawing.Size(75, 15);
             this.bk_energy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -385,7 +411,7 @@
             // bk_wick
             // 
             this.bk_wick.Image = global::BricksGenerator.Properties.Resources.wick;
-            this.bk_wick.Location = new System.Drawing.Point(482, 309);
+            this.bk_wick.Location = new System.Drawing.Point(482, 297);
             this.bk_wick.Name = "bk_wick";
             this.bk_wick.Size = new System.Drawing.Size(73, 16);
             this.bk_wick.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -452,6 +478,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(582, 753);
+            this.Controls.Add(this.bk_huge_hp);
+            this.Controls.Add(this.bk_little_hp);
             this.Controls.Add(this.bk_way_d_laser);
             this.Controls.Add(this.bk_d_laser);
             this.Controls.Add(this.bk_way_s_laser);
@@ -490,6 +518,8 @@
             this.Name = "Form1";
             this.Text = "BricksGenerator";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.bk_huge_hp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bk_little_hp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_way_d_laser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_d_laser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bk_way_s_laser)).EndInit();
@@ -556,6 +586,8 @@
         private System.Windows.Forms.PictureBox bk_way_s_laser;
         private System.Windows.Forms.PictureBox bk_d_laser;
         private System.Windows.Forms.PictureBox bk_way_d_laser;
+        private System.Windows.Forms.PictureBox bk_little_hp;
+        private System.Windows.Forms.PictureBox bk_huge_hp;
     }
 }
 

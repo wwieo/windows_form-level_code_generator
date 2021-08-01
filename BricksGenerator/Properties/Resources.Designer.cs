@@ -233,9 +233,29 @@ namespace BricksGenerator.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap huge_hp {
+            get {
+                object obj = ResourceManager.GetObject("huge_hp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap hurt {
             get {
                 object obj = ResourceManager.GetObject("hurt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap little_hp {
+            get {
+                object obj = ResourceManager.GetObject("little_hp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

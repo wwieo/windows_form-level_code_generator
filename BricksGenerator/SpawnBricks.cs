@@ -38,6 +38,8 @@ namespace BricksGenerator
                 { "bk_d_laser" ,  1},
                 { "bk_way_s_laser" ,  1},
                 { "bk_way_d_laser" ,  1},
+                { "bk_little_hp" ,  1},
+                { "bk_huge_hp" ,  1},
                 { "ball0" ,  1},
                 { "ball10" ,  1},
                 { "ball20" ,  1},

@@ -163,6 +163,8 @@
   <ItemGroup>
     <Content Include="Resources\bricks\d_laser.png" />
     <Content Include="Resources\bricks\d_laser_full.png" />
+    <Content Include="Resources\bricks\huge_hp.png" />
+    <Content Include="Resources\bricks\little_hp.png" />
     <Content Include="Resources\bricks\s_laser.png" />
     <Content Include="Resources\bricks\s_laser_full.png" />
   </ItemGroup>

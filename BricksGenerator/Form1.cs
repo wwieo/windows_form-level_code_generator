@@ -86,6 +86,15 @@ namespace BricksGenerator
         {
             spawn(bk_way_d_laser, bk_way_d_laser.Name, 0, 0, 0);
         }
+        private void bk_little_hp_Click(object sender, EventArgs e)
+        {
+            spawn(bk_little_hp, bk_little_hp.Name, 0, 0, 0);
+
+        }
+        private void bk_huge_hp_Click(object sender, EventArgs e)
+        {
+            spawn(bk_huge_hp, bk_huge_hp.Name, 0, 0, 0);
+        }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -133,6 +142,8 @@ namespace BricksGenerator
             else if (brick.Name.Contains("bk_d_laser")) executing += "dl";
             else if (brick.Name.Contains("bk_way_s_laser")) executing += "slw";
             else if (brick.Name.Contains("bk_way_d_laser")) executing += "dlw";
+            else if (brick.Name.Contains("bk_little_hp")) executing += "hps";
+            else if (brick.Name.Contains("bk_huge_hp")) executing += "hpb";
 
             return executing;
         }
@@ -175,7 +186,9 @@ namespace BricksGenerator
                 { "sl" , bk_s_laser },
                 { "dl" , bk_d_laser },
                 { "slw" , bk_way_s_laser },
-                { "dlw" , bk_way_d_laser }
+                { "dlw" , bk_way_d_laser },
+                { "hps" , bk_little_hp },
+                { "hpb" , bk_huge_hp }
             };
 
             try
@@ -245,37 +258,37 @@ namespace BricksGenerator
 
         private void ball0_Click(object sender, EventArgs e)
         {
-            spawn(ball0, "ball0", 0, 0, 0);
+            spawn(ball0, ball0.Name, 0, 0, 0);
         }
 
         private void ball10_Click(object sender, EventArgs e)
         {
-            spawn(ball10, "ball10", 0, 0, 0);
+            spawn(ball10, ball10.Name, 0, 0, 0);
         }
 
         private void ball20_Click(object sender, EventArgs e)
         {
-            spawn(ball20, "ball20", 0, 0, 0);
+            spawn(ball20, ball20.Name, 0, 0, 0);
         }
 
         private void ball30_Click(object sender, EventArgs e)
         {
-            spawn(ball30, "ball30", 0, 0, 0);
+            spawn(ball30, ball30.Name, 0, 0, 0);
         }
 
         private void ball40_Click(object sender, EventArgs e)
         {
-            spawn(ball40, "ball40", 0, 0, 0);
+            spawn(ball40, ball40.Name, 0, 0, 0);
         }
 
         private void ball45_Click(object sender, EventArgs e)
         {
-            spawn(ball45, "ball45", 0, 0, 0);
+            spawn(ball45, ball45.Name, 0, 0, 0);
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            spawn(ball100, "ball100", 0, 0, 0);
+            spawn(ball100, ball100.Name, 0, 0, 0);
         }
 
 
