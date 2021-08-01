@@ -104,9 +104,6 @@
     <None Include="Resources\bricks\casual.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bricks\d_laser.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bricks\dis_gravity.png" />
   </ItemGroup>
   <ItemGroup>
@@ -126,9 +123,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bricks\rock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bricks\s_laser.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bricks\wick.png" />
@@ -167,10 +161,10 @@
     <None Include="Resources\bricks\p_hurt_random.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bricks\d_laser_full.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bricks\s_laser_full.png" />
+    <Content Include="Resources\bricks\d_laser.png" />
+    <Content Include="Resources\bricks\d_laser_full.png" />
+    <Content Include="Resources\bricks\s_laser.png" />
+    <Content Include="Resources\bricks\s_laser_full.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

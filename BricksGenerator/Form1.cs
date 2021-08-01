@@ -22,88 +22,75 @@ namespace BricksGenerator
             InitializeComponent();
         }
 
-
         private void bk_casual_Click(object sender, EventArgs e)
         {
-            spawn(bk_casual, "bk_casual",0 ,0, 0);
+            spawn(bk_casual, bk_casual.Name, 0, 0, 0);
         }
         private void bk_glass_Click(object sender, EventArgs e)
         {
-            spawn(bk_glass, "bk_glass", 0, 0, 0);
+            spawn(bk_glass, bk_glass.Name, 0, 0, 0);
         }
-
         private void bk_hurt_Click(object sender, EventArgs e)
         {
-            spawn(bk_hurt, "bk_hurt", 0, 0, 0);
+            spawn(bk_hurt, bk_hurt.Name, 0, 0, 0);
         }
-
         private void bk_wick_Click(object sender, EventArgs e)
         {
-            spawn(bk_wick, "bk_wick", 0, 0, 0);
+            spawn(bk_wick, bk_wick.Name, 0, 0, 0);
         }
-
         private void bk_r_phurt_Click(object sender, EventArgs e)
         {
-            spawn(bk_r_phurt, "bk_r_phurt", 0, 0, 0);
+            spawn(bk_r_phurt, bk_r_phurt.Name, 0, 0, 0);
         }
-
         private void bk_phurt_Click(object sender, EventArgs e)
         {
-            spawn(bk_phurt, "bk_phurt", 0, 0, 0);
+            spawn(bk_phurt, bk_phurt.Name, 0, 0, 0);
         }
-
         private void bk_rock_Click(object sender, EventArgs e)
         {
-            spawn(bk_rock, "bk_rock", 0, 0, 0);
+            spawn(bk_rock, bk_rock.Name, 0, 0, 0);
         }
-
         private void bk_r_gravity_Click(object sender, EventArgs e)
         {
-            spawn(bk_r_gravity, "bk_r_gravity", 0, 0, 0);
+            spawn(bk_r_gravity, bk_r_gravity.Name, 0, 0, 0);
         }
-
         private void bk_gravity_Click(object sender, EventArgs e)
         {
-            spawn(bk_gravity, "bk_gravity", 0, 0, 0);
+            spawn(bk_gravity, bk_gravity.Name, 0, 0, 0);
         }
-
         private void bk_r_disgravity_Click(object sender, EventArgs e)
         {
-            spawn(bk_r_disgravity, "bk_r_disgravity", 0, 0, 0);
+            spawn(bk_r_disgravity, bk_r_disgravity.Name, 0, 0, 0);
         }
         private void bk_disgravity_Click(object sender, EventArgs e)
         {
-            spawn(bk_disgravity, "bk_disgravity", 0, 0, 0);
+            spawn(bk_disgravity, bk_disgravity.Name, 0, 0, 0);
         }
         private void bk_energy_Click(object sender, EventArgs e)
         {
-            spawn(bk_energy, "bk_energy", 0, 0, 0);
+            spawn(bk_energy, bk_energy.Name, 0, 0, 0);
         }
-
         private void bk_s_laser_Click(object sender, EventArgs e)
         {
-            spawn(bk_s_laser, "bk_s_laser", 0, 0, 0);
+            spawn(bk_s_laser, bk_s_laser.Name, 0, 0, 0);
         }
-
         private void bk_d_laser_Click(object sender, EventArgs e)
         {
-            spawn(bk_d_laser, "bk_d_laser", 0, 0, 0);
+            spawn(bk_d_laser, bk_d_laser.Name, 0, 0, 0);
         }
-
         private void bk_way_s_laser_Click(object sender, EventArgs e)
         {
-            spawn(bk_way_s_laser, "bk_way_s_laser", 0, 0, 0);
+            spawn(bk_way_s_laser, bk_way_s_laser.Name, 0, 0, 0);
         }
-
         private void bk_way_d_laser_Click(object sender, EventArgs e)
         {
-            spawn(bk_way_d_laser, "bk_way_d_laser", 0, 0, 0);
+            spawn(bk_way_d_laser, bk_way_d_laser.Name, 0, 0, 0);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            foreach (KeyValuePair<string, PictureBox> item in AllBrickList) item.Value.Dispose();
-            AllBrickList.Clear();
+            foreach (KeyValuePair<string, PictureBox> item in currenExistBrickList) item.Value.Dispose();
+            currenExistBrickList.Clear();
             BrickAngle.Clear();
 
             Graphics GPS = this.CreateGraphics();
@@ -113,7 +100,7 @@ namespace BricksGenerator
         private void btnTransCode_Click(object sender, EventArgs e)
         {
             string result = "";
-            foreach (KeyValuePair<string, PictureBox> item in AllBrickList)
+            foreach (KeyValuePair<string, PictureBox> item in currenExistBrickList)
             {
                 if (!item.Key.Contains("ball"))
                 {
@@ -153,8 +140,7 @@ namespace BricksGenerator
         private string transPosAndAng(PictureBox brick)
         {
             string executing = "(";
-            executing += (brick.Location.X.ToString()+","+ (brick.Location.Y-50).ToString());
-            //Console.WriteLine(executing);
+            executing += (brick.Location.X.ToString() + "," + (brick.Location.Y-50).ToString());
             if (brick.Name.Contains("bk_way_s_laser") || brick.Name.Contains("bk_way_d_laser"))
             {
                 foreach (KeyValuePair<string, int> item in BrickAngle)
@@ -172,37 +158,61 @@ namespace BricksGenerator
 
         private void btnSpawn_Click(object sender, EventArgs e)
         {
-            string SourceCode = txtSource.Text;
-            char[] seperate = { '/' };
-            string[] SourceArray = SourceCode.Split(seperate);
-            foreach (KeyValuePair<string, PictureBox> item in AllBrickList) item.Value.Dispose();
-            AllBrickList.Clear();
-            BrickAngle.Clear();
-            Graphics GPS = this.CreateGraphics();
-            GPS.Clear(Color.LightGray);
-            foreach (string brick_team in SourceArray)
+            var brickList = new Dictionary<string, PictureBox>()
             {
-                char[] sep = { '(', ',', ')' };
-                string[] source = brick_team.Split(sep);
+                { "n" , bk_casual },
+                { "g" , bk_glass },
+                { "h" , bk_hurt },
+                { "w" , bk_wick },
+                { "r" , bk_rock },
+                { "phr" , bk_r_phurt },
+                { "ph" , bk_phurt },
+                { "grr" , bk_r_gravity },
+                { "gr" , bk_gravity },
+                { "dgr" , bk_r_disgravity },
+                { "dg" , bk_disgravity },
+                { "b" , bk_energy },
+                { "sl" , bk_s_laser },
+                { "dl" , bk_d_laser },
+                { "slw" , bk_way_s_laser },
+                { "dlw" , bk_way_d_laser }
+            };
 
-                if (source[0] == "n") spawn(bk_casual, "bk_casual", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "g") spawn(bk_glass, "bk_glass", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "h") spawn(bk_hurt, "bk_hurt", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "w") spawn(bk_wick, "bk_wick", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "phr") spawn(bk_r_phurt, "bk_r_phurt", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "ph") spawn(bk_phurt, "bk_phurt", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "r") spawn(bk_rock, "bk_rock", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "grr") spawn(bk_r_gravity, "bk_r_gravity", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "gr") spawn(bk_gravity, "bk_gravity", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "dgr") spawn(bk_r_disgravity, "bk_r_disgravity", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "dg") spawn(bk_disgravity, "bk_disgravity", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "b") spawn(bk_energy, "bk_energy", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "sl") spawn(bk_s_laser, "bk_s_laser", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "dl") spawn(bk_d_laser, "bk_d_laser", Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
-                else if (source[0] == "slw") spawn(bk_way_s_laser, "bk_way_s_laser", Int32.Parse(source[1]), Int32.Parse(source[2]), Int32.Parse(source[3]));
-                else if (source[0] == "dlw") spawn(bk_way_d_laser, "bk_way_d_laser", Int32.Parse(source[1]), Int32.Parse(source[2]), Int32.Parse(source[3])); 
-                
+            try
+            {
+                string SourceCode = txtSource.Text;
+                char[] seperate = { '/' };
+                string[] SourceArray = SourceCode.Split(seperate);
+                foreach (KeyValuePair<string, PictureBox> item in currenExistBrickList) item.Value.Dispose();
+                currenExistBrickList.Clear();
+                BrickAngle.Clear();
+                Graphics GPS = this.CreateGraphics();
+                GPS.Clear(Color.LightGray);                
+
+                foreach (string brick_team in SourceArray)
+                {
+                    char[] sep = { '(', ',', ')' };
+                    string[] source = brick_team.Split(sep);
+
+                    if(source[0]!= "")
+                    {
+                        var brick = brickList[source[0]];
+                        var brickName = brickList[source[0]].Name;
+                        if (brickName == "bk_way_s_laser" || brickName == "bk_way_d_laser")
+                        {
+                            spawn(brick, brickName, Int32.Parse(source[1]), Int32.Parse(source[2]), Int32.Parse(source[3]));
+                        }
+                        else
+                        {
+                            spawn(brick, brickName, Int32.Parse(source[1]), Int32.Parse(source[2]), 0);
+                        }
+                    }               
+                }                           
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("生成錯誤");
+            }            
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -267,5 +277,7 @@ namespace BricksGenerator
         {
             spawn(ball100, "ball100", 0, 0, 0);
         }
+
+
     }
 }

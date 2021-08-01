@@ -15,153 +15,44 @@ namespace BricksGenerator
     public partial class Form1 : Form
     {
        
-        Dictionary<string, PictureBox> AllBrickList = new Dictionary<string, PictureBox>();
+        Dictionary<string, PictureBox> currenExistBrickList = new Dictionary<string, PictureBox>();
         Dictionary<string, int> BrickAngle = new Dictionary<string, int>();
 
-        int bk_casual_count = 1;
-        int bk_glass_count = 1;
-        int bk_hurt_count = 1;
-        int bk_wick_count = 1;
-        int bk_r_phurt_count = 1;
-        int bk_phurt_count = 1;
-        int bk_rock_count = 1;
-        int bk_r_gravity_count = 1;
-        int bk_gravity_count = 1;
-        int bk_r_disgravity_count = 1;
-        int bk_disgravity_count = 1;
-        int bk_energy_count = 1;
-        int bk_s_laser_count = 1;
-        int bk_d_laser_count = 1;
-        int bk_way_s_laser_count = 1;
-        int bk_way_d_laser_count = 1;
-
-        int ball0_count = 1;
-        int ball10_count = 1;
-        int ball20_count = 1;
-        int ball30_count = 1;
-        int ball40_count = 1;
-        int ball45_count = 1;
-        int ball100_count = 1;
         
-
+        Dictionary<string, int> allBrickList = new Dictionary<string, int>()
+            {
+            //brickName: brickNameCounts
+                { "bk_casual" ,  1},
+                { "bk_glass" ,  1},
+                { "bk_hurt" ,  1},
+                { "bk_wick" ,  1},
+                { "bk_rock" ,  1},
+                { "bk_r_phurt" ,  1},
+                { "bk_phurt" ,  1},
+                { "bk_r_gravity" ,  1},
+                { "bk_gravity" ,  1},
+                { "bk_r_disgravity" ,  1},
+                { "bk_disgravity" ,  1},
+                { "bk_energy" ,  1},
+                { "bk_s_laser" ,  1},
+                { "bk_d_laser" ,  1},
+                { "bk_way_s_laser" ,  1},
+                { "bk_way_d_laser" ,  1},
+                { "ball0" ,  1},
+                { "ball10" ,  1},
+                { "ball20" ,  1},
+                { "ball30" , 1},
+                { "ball40" ,  1},
+                { "ball45" ,  1},
+                { "ball100" ,  1}
+            };
+       
         public void spawn(PictureBox brick, String brick_name, int brick_X, int brick_Y, int angle)
         {
             PictureBox pb = new PictureBox();
-            if (brick_name == "bk_casual")
-            {
-                pb.Name = "bk_casual" + bk_casual_count.ToString();
-                bk_casual_count += 1;
-            }
-            else if (brick_name == "bk_glass")
-            {
-                pb.Name = "bk_glass" + bk_glass_count.ToString();
-                bk_glass_count += 1;
-            }
-            else if (brick_name == "bk_hurt")
-            {
-                pb.Name = "bk_hurt" + bk_hurt_count.ToString();
-                bk_hurt_count += 1;
-            }
-            else if (brick_name == "bk_wick")
-            {
-                pb.Name = "bk_wick" + bk_wick_count.ToString();
-                bk_wick_count += 1;
-            }
-            else if (brick_name == "bk_r_phurt")
-            {
-                pb.Name = "bk_r_phurt" + bk_r_phurt_count.ToString();
-                bk_r_phurt_count += 1;
-            }
-            else if (brick_name == "bk_phurt")
-            {
-                pb.Name = "bk_phurt" + bk_phurt_count.ToString();
-                bk_phurt_count += 1;
-            }
-            else if (brick_name == "bk_rock")
-            {
-                pb.Name = "bk_rock" + bk_rock_count.ToString();
-                bk_rock_count += 1;
-            }
-            else if (brick_name == "bk_r_gravity")
-            {
-                pb.Name = "bk_r_gravity" + bk_r_gravity_count.ToString();
-                bk_r_gravity_count += 1;
-            }
-            else if (brick_name == "bk_gravity")
-            {
-                pb.Name = "bk_gravity" + bk_gravity_count.ToString();
-                bk_gravity_count += 1;
-            }
-            else if (brick_name == "bk_r_disgravity")
-            {
-                pb.Name = "bk_r_disgravity" + bk_r_disgravity_count.ToString();
-                bk_r_disgravity_count += 1;
-            }
-            else if (brick_name == "bk_disgravity")
-            {
-                pb.Name = "bk_disgravity" + bk_disgravity_count.ToString();
-                bk_disgravity_count += 1;
-            }
-            else if (brick_name == "bk_energy")
-            {
-                pb.Name = "bk_energy" + bk_energy_count.ToString();
-                bk_energy_count += 1;
-            }
-            else if (brick_name == "bk_s_laser")
-            {
-                pb.Name = "bk_s_laser" + bk_s_laser_count.ToString();
-                bk_s_laser_count += 1;
-            }
-            else if (brick_name == "bk_d_laser")
-            {
-                pb.Name = "bk_d_laser" + bk_d_laser_count.ToString();
-                bk_d_laser_count += 1;
-            }
-            else if (brick_name == "bk_way_s_laser")
-            {
-                pb.Name = "bk_way_s_laser" + bk_way_s_laser_count.ToString();
-                bk_way_s_laser_count += 1;
-            }
-            else if (brick_name == "bk_way_d_laser")
-            {
-                pb.Name = "bk_way_d_laser" + bk_way_d_laser_count.ToString();
-                bk_way_d_laser_count += 1;
-            }
-            else if (brick_name == "ball0")
-            {
-                pb.Name = "ball0" + ball0_count.ToString();
-                ball0_count += 1;
-            }
-            else if (brick_name == "ball10")
-            {
-                pb.Name = "ball10" + ball10_count.ToString();
-                ball10_count += 1;
-            }
-            else if (brick_name == "ball20")
-            {
-                pb.Name = "ball20" + ball20_count.ToString();
-                ball20_count += 1;
-            }
-            else if (brick_name == "ball30")
-            {
-                pb.Name = "ball30" + ball30_count.ToString();
-                ball30_count += 1;
-            }
-            else if (brick_name == "ball40")
-            {
-                pb.Name = "ball40" + ball40_count.ToString();
-                ball40_count += 1;
-            }
-            else if (brick_name == "ball45")
-            {
-                pb.Name = "ball45" + ball45_count.ToString();
-                ball45_count += 1;
-            }
-            else if (brick_name == "ball100")
-            {
-                pb.Name = "ball100" + ball100_count.ToString();
-                ball100_count += 1;
-            }
+            pb.Name = brick_name;
+            pb.Name += allBrickList[brick_name].ToString();
+            allBrickList[brick_name] += 1;            
 
             pb.Size = brick.Size;
             pb.Image = brick.Image;
@@ -175,16 +66,17 @@ namespace BricksGenerator
             pb.MouseWheel += new MouseEventHandler(scale_bk);
             if(brick_name == "bk_way_s_laser" || brick_name == "bk_way_d_laser")
             {
-                pb.Paint += new PaintEventHandler(way_paint);
-                pb.Image = RotateImage(pb.Image, -angle);
+                // rotate brick image
+                //pb.Paint += new PaintEventHandler(way_paint);
+                //pb.Image = RotateImage(pb.Image, -angle);
                 BrickAngle.Add(pb.Name, angle);
             }
                 
-            AllBrickList.Add(pb.Name, pb);
+            currenExistBrickList.Add(pb.Name, pb);
 
-            if (AllBrickList.Count > 0)
+            if (currenExistBrickList.Count > 0)
             {
-                foreach (PictureBox pbb in AllBrickList.Values)
+                foreach (PictureBox pbb in currenExistBrickList.Values)
                 {
                     if (pbb.Name.Contains("bk_phurt") || pbb.Name.Contains("bk_r_phurt")
                         || pbb.Name.Contains("bk_gravity") || pbb.Name.Contains("bk_r_gravity")
@@ -249,7 +141,7 @@ namespace BricksGenerator
 
                 foreach (KeyValuePair<string, int> bk_angle in BrickAngle)
                 {
-                    Console.WriteLine(bk_angle.Value);
+                    //Console.WriteLine(bk_angle.Value);
                     if (pb.Name == bk_angle.Key)
                     {
                         int terminal_X = (int)(1000 * Math.Cos((Math.PI / 180) * -bk_angle.Value));
@@ -295,7 +187,7 @@ namespace BricksGenerator
 
                 int bk_X = pb.Location.X + pb.Width / 2;
                 int bk_Y = pb.Location.Y + pb.Height / 2;
-                foreach (KeyValuePair<string, PictureBox> item in AllBrickList)
+                foreach (KeyValuePair<string, PictureBox> item in currenExistBrickList)
                 {
                     if (item.Value.Name != current_brick_name)
                     {
@@ -357,7 +249,7 @@ namespace BricksGenerator
                     if (pb.Name.Contains("ball40")) GPS.DrawLine(penSmash, bk_X, bk_Y, bk_X, bk_Y + calculateDistance(5.5));
                     if (pb.Name.Contains("ball45")) GPS.DrawLine(penSmash, bk_X, bk_Y, bk_X, bk_Y + calculateDistance(4));
                 }
-                //Console.WriteLine(AllBrickList[current_brick_name].Location);
+                //Console.WriteLine(currenExistBrickList[current_brick_name].Location);
             }
             else if(e.Button == MouseButtons.Right)
             {
@@ -426,7 +318,7 @@ namespace BricksGenerator
 
             if (pb.Top < 50)
             {
-                AllBrickList.Remove(pb.Name);
+                currenExistBrickList.Remove(pb.Name);
                 pb.Dispose();
             }
             if (pb.Top + pb.Height > 690) pb.Top = 690 - pb.Height;
@@ -459,8 +351,5 @@ namespace BricksGenerator
             }
 
         }
-
-
-
     }
 }
